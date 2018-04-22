@@ -20,7 +20,7 @@ defmodule Books.Mixfile do
   def application do
     [
       mod: {Books, []},
-      extra_applications: [:logger, :graphql]
+      extra_applications: [:logger]
     ]
   end
 
@@ -41,7 +41,11 @@ defmodule Books.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:graphql, "~> 0.3"}
+      {:graphql, "~> 0.3"},
+      {:absinthe, ">= 0.0.0", override: true},
+      {:absinthe_relay, ">= 0.0.0", override: true},
+      {:absinthe_plug, "~> 1.4.0"},
+      {:absinthe_ecto, "~> 0.1.3", override: true}
     ]
   end
 

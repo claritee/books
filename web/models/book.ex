@@ -8,7 +8,7 @@ defmodule Books.Book do
   schema "books" do
     field :title, :string
     field :author, :string
-    timestamps
+    timestamps()
   end
 
   def changeset(model, params \\ %{}) do

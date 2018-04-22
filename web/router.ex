@@ -19,8 +19,12 @@ defmodule Books.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Books do
-  #   pipe_through :api
-  # end
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: Books.GraphQL.Schema
+
+    forward "/", Absinthe.Plug, schema: Books.GraphQL.Schema
+  end
+
 end
