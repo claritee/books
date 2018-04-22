@@ -10,7 +10,8 @@ defmodule Books.GraphQL.Resolvers.Book do
     {:ok, result}
   end
 
-  def resolve_book(%{id: id}) do
-    {:ok, Books.Repo.get(Books.Book, id)}
+  def resolve_book(_args, %{id: id}, _resolution) do
+    book = Books.Repo.get(Books.Book, id)
+    {:ok, %Book{id: book.id, title: book.title, author: book.author}}
   end
 end
