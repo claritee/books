@@ -20,7 +20,7 @@ defmodule Books.Mixfile do
   def application do
     [
       mod: {Books, []},
-      extra_applications: [:logger]
+      extra_applications: [:logger, :graphql]
     ]
   end
 
